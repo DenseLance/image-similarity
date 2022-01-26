@@ -1,0 +1,25 @@
+<html>
+<head>
+	<title>Top 5 Chinese Singers</title>
+</head>
+<body>
+	<h1>Social Credit Test</h1>
+	<h1>社会信用考试</h1>
+	<p>You need to score at least <b>50%</b> in this test to gain social credits.</p>
+	<p>你需要在这个考试中获得至少 <b>50%</b> 才能得到社会信用。</p>
+	<form action = "{{url_for('home')}}" method = "POST" enctype = "multipart/form-data">
+		<p><input type = "file" name = "pred_img" accept = "image/*" required></p>
+		<p><input type = "submit" value = "Submit"></p>
+	</form>
+	{% if result is not none %}
+		<p><img src = "{{url_for('static', filename = 'img/' + result)}}"></p>
+	{% endif %}
+	<p><b>评分: </b>{{score}}</p>
+	{% if flag is not none %}
+		<p>{{flag}}</p>
+	{% endif %}
+	<br><hr>
+	<p><small>**For Chinese citizens only.</small></p>
+	<p><small>**仅限中国公民。</small></p>
+</body>
+</html>
